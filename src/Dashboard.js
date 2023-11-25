@@ -3,12 +3,9 @@ import { getWeatherData, getRandomItem } from './weatherServices';
 import toast, { Toaster } from 'react-hot-toast';
 // components
 import Search from './components/Search';
-import { Conditions } from './components/Current';
-import HourlyForecast from './components/HourlyForecast';
-import OutlookForecast from './components/Outlook';
+import HourlyCard from './components/HourlyCard';
 // Background URLs
 import Backgrounds from './Backgrounds';
-import HourlyCard from './components/HourlyCard';
 
 export default function Dashboard() {
     const [query, setQuery] = useState({ q: '' });
@@ -104,44 +101,41 @@ export default function Dashboard() {
 
     return (
         <>
-        <header style={{ marginBottom: '150px' }}>
+        <header>
             <div className='title-main'>
                 <h1>Weather App</h1>
             </div>
             <Search setQuery={setQuery} />
+            <Toaster />
         </header>
         {weather && (
             <>
                 <div className='col' style={{ height: 'auto' }}>
                     <div style={{
-                        height: '100vh',
-                        backgroundColor: '#252525',
-                        display: 'flex',
-                        flexDirection: 'col',
-                        margin: '0',
-                        marginTop: '150px'
+                               height: '100vh',
+                               backgroundColor: '#252525',
+                               display: 'flex',
+                               flexDirection: 'col',
+                               margin: '0',
                     }}>
-                        <div className='row content-between items-center w-100'>
-                            <div className='col content-start items-start' style={{ height: '100%', minWidth: '0', width: '50%', margin: '0 1%', /* border: '1px solid #fff' */ }}>
-                                <div style={{ maxWidth: '70%', position: 'absolute', zIndex: '8000', top: '35%', background: '#77787937', backdropFilter: 'blur(5px)' }}>
-                                    <div className='row content-start items-center text-style-1' >
-                                        <p>{weather.name}, {weather.region}</p>
-                                    </div>
-                                    <div className='row content-start items-center text-style-2' style={{ marginLeft: '1%' }}>
-                                        <p>{weather.temp_f.toFixed()}°F</p>
-                                    </div>
-                                    <div className='row content-start items-center text-style-3' style={{ marginLeft: '1%' }}>
-                                        <p style={{ alignSelf: 'flex-start', margin: '0' }}>{weather.formatIcon.value}</p>
-                                        <p>{weather.condition.text}</p>
+                        <div className='main-container'>
+                        <div className='main-content' style={{ height: '100%', minWidth: '0', width: '50%', margin: '0 1%', /* border: '1px solid #fff' */ }}>
+                                    <div className='query-conditions' style={{ /* maxWidth: '70%', position: 'absolute', zIndex: '8000', top: '35%',  */background: '#77787937', backdropFilter: 'blur(5px)' }}>
+                                        <div className='row content-start items-center text-style-1' >
+                                            <p>{weather.name}, {weather.region}</p>
+                                        </div>
+                                        <div className='row content-start items-center text-style-2' style={{ marginLeft: '1%' }}>
+                                            <p>{weather.temp_f.toFixed()}°F</p>
+                                        </div>
+                                        <div className='row content-start items-center text-style-3' style={{ marginLeft: '1%' }}>
+                                            <p style={{ alignSelf: 'flex-start', margin: '0' }}>{weather.formatIcon.value}</p>
+                                            <p>{weather.condition.text}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className='col content-end w-100' style={{
-                                backgroundImage: `${background}`,
-                                backgroundSize: 'cover',
-                                height: '100%',
-                                width: '60%',
-                                alignSelf: 'flex-end',
+                            <div className='col content-end w-100 location-bg' style={{
+                                  backgroundImage: `${background}`,
+                                  backgroundSize: 'cover'
                             }}>
                             </div>
                         </div>
