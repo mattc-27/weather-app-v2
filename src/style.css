@@ -4,12 +4,10 @@
 * {
     margin: 0;
     padding: 0;
-    /* border: 1px dashed red;*/
-
 }
 
 /* -------------
-HEADER, SEARCH
+HEADER
 ---------------- */
 header {
     height: 100px;
@@ -17,31 +15,8 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    /*position: 'absolute';
-    z-index: 99999;*/
-    margin-bottom: 150px;
-
-}
-
-.app {}
-
-
-.container-main {
-    height: 100vh;
-    /* background-color: #252525;*/
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    margin-top: 150px;
-}
-
-.current-conditions {
-    max-width: 70%;
-    position: absolute;
-    z-index: 8000;
-    top: 35%;
-    background: #77787937;
-    backdrop-filter: blur(5px);
+    background: #d9d9d9;
+    background-color: #8b87869f;
 }
 
 /* --------
@@ -53,14 +28,14 @@ TITLE, TEXT
     flex-grow: 1;
     min-width: 0;
     text-align: center;
+    color: #000221;
 }
 
 .title-main h1 {
     margin: 2%;
     font-size: 2.25em;
-    font-weight: 400;
-    /*color: #fafafa;*/
-    color: #252525;
+    font-weight: 300;
+    color: #000221;
     font-family: 'Lato';
 }
 
@@ -81,8 +56,6 @@ TITLE, TEXT
     color: #fafafa;
     font-family: 'Lato';
     min-width: none;
-    /*flex-wrap: wrap;*/
-
 }
 
 .text-style-2,
@@ -111,6 +84,7 @@ TITLE, TEXT
     font-family: 'Lato';
 }
 
+/* Change temp button */
 .temp-btn {
     height: 2.5em;
     width: 7em;
@@ -121,7 +95,6 @@ TITLE, TEXT
     font-weight: 400;
     font-size: 1em;
     margin: 1%;
-
 }
 
 .temp-btn:hover {
@@ -129,20 +102,48 @@ TITLE, TEXT
     cursor: pointer;
 }
 
+/* ------------
+SEARCH INPUT
+-------------- */
+.searchInputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: auto;
+    width: 85%;
+    min-width: 0;
+    background: #fff;
+    margin: 1%;
+    z-index: 9999;
+}
+
+.searchInputs input {
+    height: 2.5em;
+    width: 80%;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    font-size: 1em;
+    font-weight: 300;
+    color: #000;
+    font-family: 'Lato', sans-serif;
+    text-align: left;
+    border: none;
+}
 
 .dataResult {
-
-
+    width: 58%;
+    top: 120px;
+    z-index: 99999;
     overflow: visible;
     overflow-y: auto;
-
-    width: 50%;
     height: auto;
     background-color: white;
-    top: 160px;
+    opacity: 0.95;
     position: absolute;
     align-self: center;
-
 }
 
 .dataResult p {
@@ -153,43 +154,14 @@ TITLE, TEXT
     color: #252525;
     font-weight: 400;
     font-family: 'Lato';
-
 }
 
 .dataResult p:hover {
     background-color: lightgrey;
 }
 
-.searchInputs {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    height: auto;
-    width: 40%;
-    min-width: 0;
-    background: #fafafa;
-
-}
-
-.searchInputs input {
-    height: 2.5em;
-    width: 80%;
-    padding: 0;
-    border: 0;
-    outline: none;
-    background: transparent;
-    font-size: 1.25em;
-    font-weight: 300;
-    color: #000;
-    font-family: 'Lato', sans-serif;
-    text-align: left;
-
-
-}
-
 /* -------------
-
+FLEX LAYOUTS
 ---------------- */
 .row {
     display: flex;
@@ -371,31 +343,63 @@ MARGIN, WIDTH
     padding: 2%;
 }
 
+
+/* -------------
+SECTIONS
+---------------- */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-basis: 100%;
+    z-index: 8000;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.query-conditions {
+    max-width: 70%;
+    align-self: center;
+    position: absolute;
+    right: 15%;
+    z-index: 8000;
+    top: 23%;
+    margin: 0px auto;
+    background-color: #77787937;
+}
+
+.location-bg {
+    height: 100%;
+}
+
 /* -------------
 BREAKPOINTS
 ---------------- */
-@media only screen and (min-width: 780px) {
 
+@media only screen and (min-width: 780px) {
     header {
         height: 150px;
         display: flex;
         flex-direction: column;
-
         justify-content: space-evenly;
-
         align-items: center;
-        background: #d9d9d9;
         background-color: #8b87869f;
         backdrop-filter: blur(10px);
         z-index: 99999;
         position: absolute;
         width: 100%;
-
+        margin-bottom: 150px;
     }
 
     .title-main {
         text-align: left;
-
     }
 
     .searchInputs {
@@ -404,11 +408,6 @@ BREAKPOINTS
         justify-content: flex-start;
         align-items: center;
         height: auto;
-
-
-        /*        width: 100%;
-      min-width: 80%;
-        max-width: 90%; */
         width: 80%;
         flex-grow: 1;
         background: #fafafa;
@@ -416,10 +415,10 @@ BREAKPOINTS
         box-shadow: 0 3px 12px rgba(75, 75, 75, 0.518);
     }
 
-
     .searchInputs input {
         height: 3em;
         font-size: 1.2em;
+        font-weight: 300;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -428,35 +427,55 @@ BREAKPOINTS
         margin: 0.25%;
     }
 
-    .dataResult {}
+    .dataResult {
+        width: 50%;
+        top: 160px;
+    }
 
-    .conditions-card {
-        display: flex;
+    .main-container {
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         width: 100%;
-        align-items: center;
-        color: #fff;
-        font-family: 'Lato';
+    }
+
+    .main-content {
+        justify-content: start;
+        align-items: start;
+    }
+
+    .query-conditions {
+        max-width: 70%;
+        position: absolute;
+        z-index: 8000;
+        top: 35%;
+        left: 0%;
+        margin: 0;
+    }
+
+    .location-bg {
+        align-self: flex-end;
+        width: 60%;
+        height: 100%;
     }
 }
 
 @media only screen and (min-width: 1000px) {
-    .dataResult {}
+    .dataResult {
+        width: 50%;
+        top: 160px;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
-    .dataResult {}
+    .dataResult {
+        width: 50%;
+        top: 170px;
+    }
 }
 
 @media only screen and (min-width: 1300px) {
     .dataResult {
-        width: 70%;
-        top: 4.2em;
+        width: 50%;
+        top: 170px;
     }
-}
-
-@media only screen and (min-width: 1400px) {
-    .dataResult {}
-
 }
