@@ -4,9 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack --mode development && nodemon server.js",
-    "deploy": "../../google-cloud-sdk/bin/gcloud app deploy"
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
