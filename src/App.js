@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Layout from './components/Layout';
-import Dashboard from './Dashboard';
+import { WeatherProvider } from './weatherContext';
+import {
+    createBrowserRouter,
+    Routes,
+    Route,
+    BrowserRouter,
+    RouterProvider
+} from 'react-router-dom';
 
-// stylesheet
 import './style.css';
 
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Layout />,
+    }])
+
 export default function App() {
+
     return (
-        <Dashboard />
+        <WeatherProvider>
+            <RouterProvider router={router} />
+        </WeatherProvider>
     );
 }
