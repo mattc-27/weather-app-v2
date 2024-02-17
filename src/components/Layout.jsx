@@ -64,9 +64,8 @@ export default function Layout() {
                         },
                     }
                 )
-                const data = response;
                 // set weather data
-                console.log(response);
+                console.log(response)
                 setCurrentConditions(response)
 
                 const currentLocation = Backgrounds.images.find(({ region }) => region === response.region)
@@ -74,12 +73,6 @@ export default function Layout() {
                 console.log(currentLocation)
                 await getBackground(currentLocation)
 
-
-                // console.log(response);
-
-
-
-                // setForecastData(data.forecastday[0].hour);
             } catch (error) {
                 console.error(error.message)
             }
@@ -106,10 +99,8 @@ export default function Layout() {
             <div className='loading' style={{ fontFamily: 'Lato', fontSize: '1.5em', fontWeight: '300' }}>
                 <p><i>Coming up with weather puns is a breeze.</i></p>;
             </div>
-
         )
     }
-
 
     return (
         <>
@@ -121,7 +112,6 @@ export default function Layout() {
             }} />
             {currentConditions ?
                 <CurrentWeather currentConditions={currentConditions} />
-
                 : null
             }
             <Footer />
