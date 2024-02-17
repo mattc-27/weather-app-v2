@@ -8,7 +8,7 @@ export async function getWeatherData(query) {
     const data = await response.json();
     console.log(data);
     const formattedWeather = formatWeather(data);
-    return { ...formattedWeather };
+    return { success: true, ...formattedWeather };
   } catch (error) {
     throw new Error('Failed to fetch weather data');
   }
@@ -23,6 +23,7 @@ const formatWeather = (data) => {
 
   const formatIcon = WeatherIcons.find(({ code }) => code === condition.code)
 
+  const isValid = true;
 
   return {
     name,
@@ -35,7 +36,8 @@ const formatWeather = (data) => {
     humidity,
     pressure_in,
     forecastday,
-    formatIcon
+    formatIcon,
+    isValid
   };
 };
 
